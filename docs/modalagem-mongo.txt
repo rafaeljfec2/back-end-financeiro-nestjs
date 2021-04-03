@@ -44,9 +44,11 @@
                 - permissao                
 - outras tabelas
 	- lançamento    
+                - id_usuario
                 - id_cartao
                 - id_conta
                 - id_rateio
+                - id_categoria
                 - descricao
                 - lancamento
                 - vencimento

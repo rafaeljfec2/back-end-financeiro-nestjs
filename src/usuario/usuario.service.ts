@@ -31,5 +31,5 @@ export class UsuarioService {
 
   async remove(id: string) {
     await this.usuarioModel.deleteOne({ _id: id });
-  }
+  }  
 }
