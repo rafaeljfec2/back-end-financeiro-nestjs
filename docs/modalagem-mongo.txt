@@ -1,0 +1,67 @@
+- cadastros
+	- menu
+	        - usuario
+                - email
+                - password
+                - nome    
+                - cpf
+                - celular
+                - anivesario            
+                - confirmado       
+                - inclusao       
+	- cartao
+                - decricao
+                - nomeimpresso
+                - bandeira
+                - numero
+                - tipo
+                - inclusao
+	- conta
+                - descricao
+                - agencia
+                - numero        
+                - saldoinicial
+                - datasaldoinicial
+                - tipo
+                - inclusao
+	- categoria
+                - codigo
+                - descricao
+                - tipo
+                - inclusao
+	- contarecorrente
+                - id_conta
+                - descricao
+                - vencimento
+                - valor
+                - parcelamento
+                - categoria        
+                - tipo
+        - rateio
+                - descricao
+                - porcentagem
+                - inclusao        
+                - permissao                
+- outras tabelas
+	- lançamento    
+                - id_cartao
+                - id_conta
+                - id_rateio
+                - descricao
+                - lancamento
+                - vencimento
+                - quitacao
+                - forma: {dinheiro, cartao ou cheque}        
+                - tipo: {credito, debito}
+                - conciliado : {
+                - S
+                - N
+                }
+                - anexos:{
+                - descricao
+                - link
+                - inclusao
+                }
+                - obs
+                - inclusao
+
