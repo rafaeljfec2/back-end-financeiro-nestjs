@@ -26,5 +26,6 @@ export class CreateContaDto{
     @IsNotEmpty() @IsString()
     tipo: string;    
 
+    @IsDate()
     inclusao: Date;
 }

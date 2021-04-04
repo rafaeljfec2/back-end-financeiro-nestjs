@@ -6,6 +6,7 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { CartaoModule } from './cartao/cartao.module';
 import { ContaModule } from './conta/conta.module';
 import { CategoriaModule } from './categoria/categoria.module';
+import { ContarecorrenteModule } from './contarecorrente/contarecorrente.module';
 
 @Module({
   imports: [
@@ -13,7 +14,8 @@ import { CategoriaModule } from './categoria/categoria.module';
     UsuarioModule,
     CartaoModule,
     ContaModule,
-    CategoriaModule
+    CategoriaModule,
+    ContarecorrenteModule
   ],
   controllers: [AppController],
   providers: [AppService],

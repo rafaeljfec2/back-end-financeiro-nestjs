@@ -42,12 +42,14 @@
                 - parcelamento
                 - categoria        
                 - tipo
+                - inclusao
         - rateio
                 - id_usuario
                 - descricao
                 - porcentagem
                 - inclusao        
                 - permissao                
+                - inclusao
 - outras tabelas
 	- lançamento    
                 - id_usuario
