@@ -18,6 +18,9 @@ export class Usuario extends Document {
 
     @Prop({ default: "N"}) 
     confirmado: string;
+
+    @Prop()
+    avatar: string;
     
     @Prop({ default: Date}) 
     inclusao: Date;  

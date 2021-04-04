@@ -17,5 +17,6 @@ export class CreateUsuarioDto {
     celular: string;
     anivesario: Date;            
     confirmado: string;
+    avatar: string;
     inclusao: Date;  
 }

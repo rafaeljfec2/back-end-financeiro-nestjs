@@ -6,24 +6,19 @@ export class CreateCartaoDto {
     @IsNotEmpty()        
     usuario: Usuario;  
 
-    @IsNotEmpty()        
-    @IsString()
+    @IsNotEmpty() @IsString()
     descricao: string;
 
-    @IsNotEmpty()
-    @IsString()
+    @IsNotEmpty() @IsString()
     nomeimpresso : string;
 
-    @IsNotEmpty()
-    @IsString()
+    @IsNotEmpty() @IsString()
     bandeira : string;
 
-    @IsNotEmpty()
-    @IsNumber()
+    @IsNotEmpty() @IsNumber()
     numero : number;
 
-    @IsNotEmpty()
-    @IsString()
+    @IsNotEmpty() @IsString()
     tipo: string;
 
     inclusao: Date;

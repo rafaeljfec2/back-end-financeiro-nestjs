@@ -7,9 +7,11 @@
                 - cpf
                 - celular
                 - anivesario            
-                - confirmado       
+                - confirmado 
+                - avatar      
                 - inclusao       
 	- cartao
+                - id_usuario
                 - decricao
                 - nomeimpresso
                 - bandeira
@@ -17,6 +19,7 @@
                 - tipo
                 - inclusao
 	- conta
+                - id_usuario
                 - descricao
                 - agencia
                 - numero        
@@ -25,11 +28,13 @@
                 - tipo
                 - inclusao
 	- categoria
+                - id_usuario
                 - codigo
                 - descricao
                 - tipo
                 - inclusao
 	- contarecorrente
+                - id_usuario
                 - id_conta
                 - descricao
                 - vencimento
@@ -38,6 +43,7 @@
                 - categoria        
                 - tipo
         - rateio
+                - id_usuario
                 - descricao
                 - porcentagem
                 - inclusao        
@@ -49,6 +55,7 @@
                 - id_conta
                 - id_rateio
                 - id_categoria
+                - id_contarecorrente
                 - descricao
                 - lancamento
                 - vencimento
