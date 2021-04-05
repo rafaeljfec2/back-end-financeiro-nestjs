@@ -8,6 +8,7 @@ import { ContaModule } from './conta/conta.module';
 import { CategoriaModule } from './categoria/categoria.module';
 import { ContarecorrenteModule } from './contarecorrente/contarecorrente.module';
 import { RateioModule } from './rateio/rateio.module';
+import { LancamentoModule } from './lancamento/lancamento.module';
 
 @Module({
   imports: [
@@ -17,7 +18,8 @@ import { RateioModule } from './rateio/rateio.module';
     ContaModule,
     CategoriaModule,
     ContarecorrenteModule,
-    RateioModule
+    RateioModule,
+    LancamentoModule
   ],
   controllers: [AppController],
   providers: [AppService],
