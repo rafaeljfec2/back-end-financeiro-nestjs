@@ -10,7 +10,7 @@ export class Rateio extends mongoose.Document{
 
     @Prop({ required: true }) descricao: string;    
     @Prop({ required: true }) porcentagem: number;              
-    @Prop({ default: true }) inclusao: Date;
+    @Prop({ default: Date }) inclusao: Date;
 }
 
 export const RateioSchema = SchemaFactory.createForClass(Rateio);
