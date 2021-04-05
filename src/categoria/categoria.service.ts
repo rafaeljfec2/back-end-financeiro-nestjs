@@ -30,6 +30,6 @@ export class CategoriaService {
   }
   
   async remove(id: string) {
-    return this.categoriaModel.deleteOne({ _id: id});
+    return this.categoriaModel.deleteOne({ _id: id}).exec();
   }
 }

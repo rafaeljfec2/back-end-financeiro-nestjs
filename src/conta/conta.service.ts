@@ -30,6 +30,6 @@ export class ContaService {
   }
 
   async remove(id: string) {
-    await this.contaModule.deleteOne({ _id: id });
+    await this.contaModule.deleteOne({ _id: id }).exec();
   }
 }
