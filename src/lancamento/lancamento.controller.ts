@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, ValidationPipe } from '@nestjs/common';
 import { LancamentoService } from './lancamento.service';
 import { CreateLancamentoDto } from './dto/create-lancamento.dto';
 import { UpdateLancamentoDto } from './dto/update-lancamento.dto';
@@ -8,7 +8,7 @@ export class LancamentoController {
   constructor(private readonly lancamentoService: LancamentoService) {}
 
   @Post()
-  create(@Body() createLancamentoDto: CreateLancamentoDto) {
+  create(@Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) createLancamentoDto: CreateLancamentoDto) {
     return this.lancamentoService.create(createLancamentoDto);
   }
 
@@ -19,16 +19,17 @@ export class LancamentoController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.lancamentoService.findOne(+id);
+    return this.lancamentoService.findOne(id);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateLancamentoDto: UpdateLancamentoDto) {
-    return this.lancamentoService.update(+id, updateLancamentoDto);
+  update(@Param('id') id: string, @Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) updateLancamentoDto: UpdateLancamentoDto) {
+    return this.lancamentoService.update(id, updateLancamentoDto);
   }
 
+  @HttpCode(204)
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.lancamentoService.remove(+id);
+    return this.lancamentoService.remove(id);
   }
 }

@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, ValidationPipe } from '@nestjs/common';
 import { CategoriaService } from './categoria.service';
 import { CreateCategoriaDto } from './dto/create-categoria.dto';
 import { UpdateCategoriaDto } from './dto/update-categoria.dto';
@@ -8,7 +8,7 @@ export class CategoriaController {
   constructor(private readonly categoriaService: CategoriaService) {}
 
   @Post()
-  create(@Body() createCategoriaDto: CreateCategoriaDto) {
+  create(@Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) createCategoriaDto: CreateCategoriaDto) {
     return this.categoriaService.create(createCategoriaDto);
   }
 
@@ -23,7 +23,7 @@ export class CategoriaController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCategoriaDto: UpdateCategoriaDto) {
+  update(@Param('id') id: string, @Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) updateCategoriaDto: UpdateCategoriaDto) {
     return this.categoriaService.update(id, updateCategoriaDto);
   }
 

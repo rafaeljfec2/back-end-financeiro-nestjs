@@ -9,10 +9,11 @@ import { CategoriaModule } from './categoria/categoria.module';
 import { ContarecorrenteModule } from './contarecorrente/contarecorrente.module';
 import { RateioModule } from './rateio/rateio.module';
 import { LancamentoModule } from './lancamento/lancamento.module';
+require('dotenv/config');
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://root:root@db/finance?authSource=admin',{ useNewUrlParser:true }),
+    MongooseModule.forRoot(process.env.MONGO_URL,{ useNewUrlParser:true }),
     UsuarioModule,
     CartaoModule,
     ContaModule,

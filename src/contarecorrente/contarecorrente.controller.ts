@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe } from '@nestjs/common';
 import { ContarecorrenteService } from './contarecorrente.service';
 import { CreateContarecorrenteDto } from './dto/create-contarecorrente.dto';
 import { UpdateContarecorrenteDto } from './dto/update-contarecorrente.dto';
@@ -8,7 +8,7 @@ export class ContarecorrenteController {
   constructor(private readonly contarecorrenteService: ContarecorrenteService) {}
 
   @Post()
-  create(@Body() createContarecorrenteDto: CreateContarecorrenteDto) {
+  create(@Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) createContarecorrenteDto: CreateContarecorrenteDto) {
     return this.contarecorrenteService.create(createContarecorrenteDto);
   }
 
@@ -23,7 +23,7 @@ export class ContarecorrenteController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateContarecorrenteDto: UpdateContarecorrenteDto) {
+  update(@Param('id') id: string, @Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) updateContarecorrenteDto: UpdateContarecorrenteDto) {
     return this.contarecorrenteService.update(id, updateContarecorrenteDto);
   }
 

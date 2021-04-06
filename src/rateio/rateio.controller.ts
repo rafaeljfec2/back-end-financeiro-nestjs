@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, ValidationPipe } from '@nestjs/common';
 import { RateioService } from './rateio.service';
 import { CreateRateioDto } from './dto/create-rateio.dto';
 import { UpdateRateioDto } from './dto/update-rateio.dto';
@@ -8,7 +8,7 @@ export class RateioController {
   constructor(private readonly rateioService: RateioService) {}
 
   @Post()
-  create(@Body() createRateioDto: CreateRateioDto) {
+  create(@Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) createRateioDto: CreateRateioDto) {
     return this.rateioService.create(createRateioDto);
   }
 
@@ -23,7 +23,7 @@ export class RateioController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateRateioDto: UpdateRateioDto) {
+  update(@Param('id') id: string, @Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) updateRateioDto: UpdateRateioDto) {
     return this.rateioService.update(id, updateRateioDto);
   }
 

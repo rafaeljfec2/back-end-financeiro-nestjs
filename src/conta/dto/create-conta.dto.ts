@@ -20,7 +20,7 @@ export class CreateContaDto{
     @IsNotEmpty() @IsDecimal()
     saldoinicial: Schema.Types.Decimal128;
 
-    @IsNotEmpty() @IsDate()
+    @IsNotEmpty()
     datasaldoinicial: Date;
 
     @IsNotEmpty() @IsString()

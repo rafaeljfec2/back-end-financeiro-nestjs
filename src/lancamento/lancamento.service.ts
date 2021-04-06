@@ -1,26 +1,35 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { CreateLancamentoDto } from './dto/create-lancamento.dto';
 import { UpdateLancamentoDto } from './dto/update-lancamento.dto';
+import { Lancamento } from './entities/lancamento.entity';
 
 @Injectable()
 export class LancamentoService {
-  create(createLancamentoDto: CreateLancamentoDto) {
-    return 'This action adds a new lancamento';
+  
+  constructor(
+    @InjectModel(Lancamento.name) private lancamentoModel: Model<Lancamento>
+  ){}
+  
+  async create(createLancamentoDto: CreateLancamentoDto) {
+    return await this.lancamentoModel.create(createLancamentoDto);
   }
 
   findAll() {
-    return `This action returns all lancamento`;
+    return this.lancamentoModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} lancamento`;
+  findOne(id: string) {
+    return this.lancamentoModel.findById(id).exec();
   }
 
-  update(id: number, updateLancamentoDto: UpdateLancamentoDto) {
-    return `This action updates a #${id} lancamento`;
+  async update(id: string, updateLancamentoDto: UpdateLancamentoDto) {
+    await this.lancamentoModel.updateOne({ _id: id }, updateLancamentoDto).exec();
+    return this.findOne(id);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} lancamento`;
+  async remove(id: string) {
+    return this.lancamentoModel.deleteOne({ _id: id }).exec();
   }
 }
