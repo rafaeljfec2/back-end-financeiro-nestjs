@@ -9,10 +9,14 @@ import { CategoriaModule } from './categoria/categoria.module';
 import { ContarecorrenteModule } from './contarecorrente/contarecorrente.module';
 import { RateioModule } from './rateio/rateio.module';
 import { LancamentoModule } from './lancamento/lancamento.module';
-require('dotenv/config');
+import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      envFilePath: process.env.NODE_ENV === "test" ? ".env.testing" : ".env"      
+    }),
     MongooseModule.forRoot(process.env.MONGO_URL,{ useNewUrlParser:true }),
     UsuarioModule,
     CartaoModule,
@@ -20,7 +24,8 @@ require('dotenv/config');
     CategoriaModule,
     ContarecorrenteModule,
     RateioModule,
-    LancamentoModule
+    LancamentoModule,
+    AuthModule
   ],
   controllers: [AppController],
   providers: [AppService],

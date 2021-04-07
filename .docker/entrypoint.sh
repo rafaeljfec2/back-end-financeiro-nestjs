@@ -2,4 +2,4 @@
 
 yarn install
 
-yarn run start:debug
+yarn run start:dev

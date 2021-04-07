@@ -9,7 +9,7 @@ import { Usuario, UsuarioSchema } from './entities/usuario.entity';
       name: Usuario.name, 
       schema: UsuarioSchema
   }])],  
-  exports: [],
+  exports: [UsuarioService],
   controllers: [UsuarioController],
   providers: [UsuarioService]
 })

@@ -31,5 +31,9 @@ export class UsuarioService {
 
   async remove(id: string) {
     await this.usuarioModel.deleteOne({ _id: id });
-  }  
+  } 
+
+  async findAuthUser(email: string): Promise<Usuario>{
+    return await this.usuarioModel.findOne({ email: email }).exec(); 
+  }
 }

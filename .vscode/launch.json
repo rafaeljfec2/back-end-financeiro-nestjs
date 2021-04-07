@@ -6,7 +6,7 @@
             "request": "launch",
             "name": "Debug Nest Framework",
             "args": [
-                "${workspaceFolder}/dist/main.ts"
+                "${workspaceFolder}/src/main.ts"
             ],
             "runtimeArgs": [
                 "--nolazy",
@@ -15,6 +15,7 @@
                 "-r",
                 "tsconfig-paths/register"
             ],
+            "autoAttachChildProcesses": true,
             "sourceMaps": true,
             "cwd": "${workspaceRoot}/dist",
             "protocol": "inspector"
