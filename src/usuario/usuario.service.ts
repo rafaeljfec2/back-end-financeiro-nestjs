@@ -34,6 +34,6 @@ export class UsuarioService {
   } 
 
   async findAuthUser(email: string): Promise<Usuario>{
-    return await this.usuarioModel.findOne({ email: email }).exec(); 
+    return await this.usuarioModel.findOne({ email: email }).lean();
   }
 }
