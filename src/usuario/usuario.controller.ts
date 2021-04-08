@@ -2,11 +2,12 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, Validation
 import { UsuarioService } from './usuario.service';
 import { CreateUsuarioDto } from './dto/create-usuario.dto';
 import { UpdateUsuarioDto } from './dto/update-usuario.dto';
-import { AuthGuard } from '@nestjs/passport';
 
 @Controller('usuario')
 export class UsuarioController {
-  constructor(private readonly usuarioService: UsuarioService) {}
+  constructor(
+    private readonly usuarioService: UsuarioService,
+  ) {}
   
   @Post()  
   async create(@Body( new ValidationPipe({ errorHttpStatusCode: 422 })) createUsuarioDto: CreateUsuarioDto) {
@@ -32,11 +33,5 @@ export class UsuarioController {
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.usuarioService.remove(id);
-  }
-
-  @UseGuards(AuthGuard('local'))
-  @Post('login')
-  async login(@Request() req){
-    return req.user;
-  }
+  }  
 }

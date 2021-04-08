@@ -1,12 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode, ValidationPipe, UseGuards } from '@nestjs/common';
 import { LancamentoService } from './lancamento.service';
 import { CreateLancamentoDto } from './dto/create-lancamento.dto';
 import { UpdateLancamentoDto } from './dto/update-lancamento.dto';
+import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 
 @Controller('lancamento')
 export class LancamentoController {
   constructor(private readonly lancamentoService: LancamentoService) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   create(@Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) createLancamentoDto: CreateLancamentoDto) {
     return this.lancamentoService.create(createLancamentoDto);
