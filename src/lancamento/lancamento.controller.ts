@@ -8,7 +8,7 @@ import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
 export class LancamentoController {
   constructor(private readonly lancamentoService: LancamentoService) {}
 
-  @UseGuards(JwtAuthGuard)
+  /*@UseGuards(JwtAuthGuard)*/
   @Post()
   create(@Body( new ValidationPipe({ errorHttpStatusCode: 422 }) ) createLancamentoDto: CreateLancamentoDto) {
     return this.lancamentoService.create(createLancamentoDto);
