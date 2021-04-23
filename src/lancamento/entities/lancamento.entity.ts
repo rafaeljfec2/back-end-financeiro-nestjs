@@ -21,7 +21,7 @@ export class Lancamento extends Document {
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref : 'Cartao'}) cartao: Cartao;
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref : 'Conta'}) conta: Conta;
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref : 'Rateio'}) rateio: Rateio;
-    @Prop({ type: mongoose.Schema.Types.ObjectId, ref : 'Usuario'}) categoria: Categoria;
+    @Prop({ type: mongoose.Schema.Types.ObjectId, ref : 'Categoria'}) categoria: Categoria;
     @Prop({ type: mongoose.Schema.Types.ObjectId, ref : 'Contarecorrente'}) contarecorrente: Contarecorrente;    
     @Prop({ required: true }) descricao: string;
     @Prop({ required: true }) lancamento: Date;
